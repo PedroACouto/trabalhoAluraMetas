@@ -105,8 +105,21 @@ body {
 }
 
 .contador {
-    font-size: 20px;
-    text-align: center;
-    margin-top: 10px;
-    color: var(--branco);
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
 }
+
+.contador-digito{ 
+    padding: 0 16px;
+    text-align: center;
+    min-width: 100px;
+}
+.contador-digito-numero{
+    font-size: 80px;
+    margin: 0;
+    color: var(--verde);
+}
+
+
+

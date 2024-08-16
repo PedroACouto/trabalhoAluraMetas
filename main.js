@@ -44,4 +44,4 @@ function atualizaContadores() {
     contadores[3].textContent = calculaTempo(tempoObjetivo4);
 }
 
-setInterval(atualizaContadores, 1000);
+//setInterval(atualizaContadores, 1000);
