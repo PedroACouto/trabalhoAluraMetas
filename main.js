@@ -29,19 +29,33 @@ function calculaTempo(tempoObjetivo) {
     minutos %= 60;
     horas %= 24;
 
-    return dias + " dias " + horas + " horas " + minutos + " minutos " + segundos + " segundos";
+    return { dias, horas, minutos, segundos };
 }
 
 function atualizaContadores() {
-    const tempoObjetivo1 = new Date("2023-10-05T00:00:00");
-    const tempoObjetivo2 = new Date("2023-12-31T00:00:00");
-    const tempoObjetivo3 = new Date("2024-02-15T00:00:00");
-    const tempoObjetivo4 = new Date("2024-04-01T00:00:00");
+    const temposObjetivos = [
+        new Date("2024-12-30T00:00:00"),
+        new Date("2024-12-15T00:00:00"),
+        new Date("2024-09-30T00:00:00"),
+        new Date("2024-10-30T00:00:00")
+    ];
 
-    contadores[0].textContent = calculaTempo(tempoObjetivo1);
-    contadores[1].textContent = calculaTempo(tempoObjetivo2);
-    contadores[2].textContent = calculaTempo(tempoObjetivo3);
-    contadores[3].textContent = calculaTempo(tempoObjetivo4);
+    temposObjetivos.forEach((tempoObjetivo, index) => {
+        const { dias, horas, minutos, segundos } = calculaTempo(tempoObjetivo);
+        const contador = contadores[index];
+
+        const diasElemento = contador.querySelector(".contador-digito:nth-child(1) .contador-digito-numero");
+        const horasElemento = contador.querySelector(".contador-digito:nth-child(2) .contador-digito-numero");
+        const minutosElemento = contador.querySelector(".contador-digito:nth-child(3) .contador-digito-numero");
+        const segundosElemento = contador.querySelector(".contador-digito:nth-child(4) .contador-digito-numero");
+
+        diasElemento.textContent = dias;
+        horasElemento.textContent = horas;
+        minutosElemento.textContent = minutos;
+        segundosElemento.textContent = segundos;
+    });
 }
 
-//setInterval(atualizaContadores, 1000);
+setInterval(atualizaContadores, 1000);
+
+atualizaContadores();

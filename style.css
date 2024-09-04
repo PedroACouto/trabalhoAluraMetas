@@ -118,7 +118,11 @@ body {
 .contador-digito-numero{
     font-size: 80px;
     margin: 0;
-    color: var(--verde);
+    color: #FFFFFF;
+}
+
+.contador-digito-texto {
+	color: var(--verde);
 }
 
 
